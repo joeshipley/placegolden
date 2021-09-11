@@ -1,3 +1,8 @@
+@font-face {
+  font-family: monotypeCorsiva;
+  src: '../MonotypeCorsiva.ttf';
+}
+
 .App {
   text-align: center;
 }
@@ -22,6 +27,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+  font-family: monotypeCorsiva;
+  padding-top: 2rem;
 }
 
 .App-link {
