@@ -1,0 +1,65 @@
+[
+  {
+    "width": "640",
+    "height": "480",
+    "credit": "Touchstone Television",
+    "caption": "Blanche sings at the Rusty Anchor",
+    "source": "../public/images/blanche-rusty-anchor.jpeg"
+  },
+  {
+    "width": "1199",
+    "height": "639",
+    "credit": "Touchstone Television",
+    "caption": "Enjoying cheesecake at night",
+    "source": "../public/images/cheesecake-1.jpeg"
+  },
+  {
+    "width": "570",
+    "height": "434",
+    "credit": "Touchstone Television",
+    "caption": "Dorothy on the phone",
+    "source": "../public/images/dorothy-nice-day.jpeg"
+  },
+  {
+    "width": "400",
+    "height": "400",
+    "credit": "Walt Disney Television via Getty Images",
+    "caption": "Group hug",
+    "source": "../public/images/hug.jpeg"
+  },
+  {
+    "width": "633",
+    "height": "439",
+    "credit": "Touchstone Television",
+    "caption": "Out on the lanai",
+    "source": "../public/images/lanai.jpeg"
+  },
+  {
+    "width": "681",
+    "height": "383",
+    "credit": "Touchstone Television",
+    "caption": "Bedtime",
+    "source": "../public/images/pajama-robes.jpeg"
+  },
+  {
+    "width": "629",
+    "height": "425",
+    "credit": "Touchstone Television",
+    "caption": "Rose and Blanche tap-dance",
+    "source": "../public/images/rose-blanche-tap-dance.jpeg"
+  },
+  {
+    "width": "637",
+    "height": "474",
+    "credit": "Touchstone Television",
+    "caption": "Rose with Count Bessie",
+    "source": "../public/images/rose-count-bessie.jpeg"
+  },
+  {
+    "width": "900",
+    "height": "672",
+    "credit": "Touchstone Television",
+    "caption": "Sophia with Little Sophia",
+    "source": "../public/images/sophia-and-little-sophia.jpeg"
+  }
+]
