@@ -1,5 +1,4 @@
-.header {
-  font-size: calc(10px + 2vmin);
-  color: black;
+@font-face {
   font-family: monotypeCorsiva;
+  src: '../MonotypeCorsiva.ttf';
 }
