@@ -1,9 +1,14 @@
 import './Header.css';
+import { AppBar, Toolbar } from '@material-ui/core';
 
 function Header() {
+  const displayDesktop = () => {
+    return <Toolbar>PlaceGolden</Toolbar>
+  }
+
   return (
     <div className="header">
-      <h1>PlaceGolden</h1>
+      <AppBar>{displayDesktop()}</AppBar>
     </div>
   );
 }
