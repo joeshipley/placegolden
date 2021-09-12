@@ -1,10 +1,16 @@
 import './Header.css';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 function Header() {
   const displayDesktop = () => {
-    return <Toolbar>PlaceGolden</Toolbar>
-  }
+    return <Toolbar>{placegoldenLogo}</Toolbar>;
+  };
+
+  const placegoldenLogo = (
+    <Typography variant="h4" component="h1">
+      PlaceGolden
+    </Typography>
+  );
 
   return (
     <div className="header">
