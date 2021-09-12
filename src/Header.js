@@ -1,9 +1,32 @@
 import './Header.css';
+import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles(() => ({
+  header: {
+    backgroundColor: "rgb(161, 232, 204)",
+    color: "rgb(73, 81, 89)",
+  },
+  logo: {
+    fontFamily: "monotypeCorsiva",
+  },
+}));
 
 function Header() {
+  const { header, logo } = useStyles();
+
+  const displayDesktop = () => {
+    return <Toolbar>{placegoldenLogo}</Toolbar>;
+  };
+
+  const placegoldenLogo = (
+    <Typography variant="h4" component="h1" className={logo}>
+      PlaceGolden
+    </Typography>
+  );
+
   return (
-    <div className="header">
-      <h1>PlaceGolden</h1>
+    <div>
+      <AppBar className={header}>{displayDesktop()}</AppBar>
     </div>
   );
 }

@@ -1,12 +1,4 @@
-.header {
-  background-color:darkturquoise;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
+@font-face {
   font-family: monotypeCorsiva;
-  padding-top: 2rem;
+  src: '../MonotypeCorsiva.ttf';
 }
