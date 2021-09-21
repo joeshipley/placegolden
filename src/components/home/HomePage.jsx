@@ -4,7 +4,9 @@ const HomePage = () => {
   return (
     <>
       <p>
-        Placeholder images of the Golden Girls. Just a few below. Coming soon: choose image dimensions and grayscale.
+        Placeholder images of the Golden Girls. Just a few below. 
+        <br />
+        Coming soon: choose image dimensions and grayscale.
       </p>
       <img src="../images/all-on-sofa.jpeg" alt="The Golden Girls gather around the sofa" />
       <img src="../images/cheesecake-1.jpeg" alt="The Golden Girls enjoy cheesecake around the table" />
