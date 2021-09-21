@@ -11,6 +11,21 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const headersData = [
+  {
+    label: 'About',
+    href: '/about'
+  },
+  {
+    label: 'All Images',
+    href: '/images'
+  },
+  {
+    label: 'Github',
+    href: 'https://github.com/cmmerritt/placegolden'
+  }
+];
+
 function Header() {
   const { header, logo } = useStyles();
 
