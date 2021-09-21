@@ -27,10 +27,6 @@ const headersData = [
   {
     label: 'All Images',
     href: '/images'
-  },
-  {
-    label: 'Github',
-    href: 'https://github.com/cmmerritt/placegolden'
   }
 ];
 
