@@ -17,6 +17,11 @@ const useStyles = makeStyles(() => ({
   logo: {
     fontFamily: "monotypeCorsiva",
   },
+  menuButton: {
+    fontFamily: "Arial, Helvetica, sans-serif",
+    size: "30px",
+    marginLeft: "40px",
+  }
 }));
 
 const headersData = [
@@ -31,7 +36,7 @@ const headersData = [
 ];
 
 function Header() {
-  const { header, logo } = useStyles();
+  const { header, logo, menuButton } = useStyles();
 
   const displayDesktop = () => {
     return <Toolbar>
@@ -55,6 +60,7 @@ function Header() {
           color: 'inherit',
           to: href,
           component: RouterLink,
+          className: menuButton
         }}
       >
         {label}
