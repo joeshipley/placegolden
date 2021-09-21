@@ -13,10 +13,22 @@ const useStyles = makeStyles(() => ({
   header: {
     backgroundColor: "rgb(161, 232, 204)",
     color: "rgb(73, 81, 89)",
+    paddingRight: "100px",
+    paddingLeft: "10px",
   },
   logo: {
     fontFamily: "monotypeCorsiva",
   },
+  menuButton: {
+    fontFamily: "Arial, Helvetica, sans-serif",
+    fontWeight: 500,
+    size: "30px",
+    marginLeft: "40px",
+  },
+  toolbar: {
+    display: "flex",
+    justifyContent: "space-between",
+  }
 }));
 
 const headersData = [
@@ -31,13 +43,15 @@ const headersData = [
 ];
 
 function Header() {
-  const { header, logo } = useStyles();
+  const { header, logo, menuButton } = useStyles();
 
   const displayDesktop = () => {
-    return <Toolbar>
+    return (
+    <Toolbar>
       {placegoldenLogo}
-      {getMenuButtons()}
-      </Toolbar>;
+      <div>{getMenuButtons()}</div>
+      </Toolbar>
+    );
   };
 
   const placegoldenLogo = (
@@ -55,6 +69,7 @@ function Header() {
           color: 'inherit',
           to: href,
           component: RouterLink,
+          className: menuButton
         }}
       >
         {label}
