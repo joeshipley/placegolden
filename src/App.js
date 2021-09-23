@@ -2,6 +2,7 @@ import './App.css';
 import Header from './Header';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
+import ImagesPage from './components/images/ImagesPage';
 import {
   Route,
   Switch,
@@ -24,6 +25,12 @@ const App = () => {
         <Route path="/about" exact={true}
           render={routerProps => (
             <AboutPage {...routerProps} />
+          )}
+        />
+
+        <Route path="/images" exact={true}
+          render={routerProps => (
+            <ImagesPage {...routerProps} />
           )}
         />
 
