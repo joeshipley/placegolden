@@ -39,7 +39,11 @@ const useStyles = makeStyles(() => ({
   },
   drawerContainer: {
     padding: "20px 30px",
-  }
+  },
+  logoLink: {
+    cursor: "pointer",
+    textDecoration: "none"
+  },
 }));
 
 const headersData = [
@@ -77,12 +81,12 @@ function Header() {
   }, []);
 
 
-  const { header, logo, menuButton } = useStyles();
+  const { header, logo, menuButton, toolbar, drawerContainer, logoLink } = useStyles();
 
   const displayDesktop = () => {
     return (
-    <Toolbar>
-      {placegoldenLogo}
+    <Toolbar className={toolbar}>
+      <MenuItem component={RouterLink} to='/' className={logoLink} style={{ textDecoration: 'none' }}>{placegoldenLogo}</MenuItem>
       <div>{getMenuButtons()}</div>
       </Toolbar>
     );
