@@ -3,7 +3,7 @@ import './AboutPage.css';
 const AboutPage = () => {
   return (
     <>
-      <p>About this site</p>
+      <p>How to use (coming soon)</p>
     </>
   );
 }
