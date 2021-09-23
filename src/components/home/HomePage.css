@@ -3,6 +3,17 @@ body {
   margin-top: 5rem;
 }
 
+div {
+  justify-content: center;
+  align-items: center;
+  padding-top: .25rem;
+  flex-wrap: wrap;
+}
+
+p {
+  padding-left: 1rem;
+}
+
 img {
   max-width: 400px;
   padding: 20px;
