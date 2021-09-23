@@ -5,7 +5,9 @@ import {
   Typography, 
   makeStyles, 
   Button, 
+  IconButton
 } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -72,6 +74,24 @@ function Header() {
     <Toolbar>
       {placegoldenLogo}
       <div>{getMenuButtons()}</div>
+      </Toolbar>
+    );
+  };
+
+  const displayMobile = () => {
+    return (
+      <Toolbar>
+        <IconButton
+          {...{
+            edge: "start",
+            color: "inherit",
+            "aria-label": "menu",
+            "aria-haspopup": "true",
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+      <div>{placegoldenLogo}</div>
       </Toolbar>
     );
   };
