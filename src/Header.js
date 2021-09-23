@@ -17,6 +17,9 @@ const useStyles = makeStyles(() => ({
     color: "rgb(73, 81, 89)",
     paddingRight: "100px",
     paddingLeft: "10px",
+    "@media (max-width: 900px)": {
+      paddingLeft: 0,
+    },
   },
   logo: {
     fontFamily: "monotypeCorsiva",
@@ -47,9 +50,10 @@ const headersData = [
 function Header() {
   const [state, setState] = useState({
     mobileView: false,
+    menuOpen: false,
   });
 
-  const { mobileView } = state;
+  const { mobileView, menuOpen } = state;
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -79,6 +83,9 @@ function Header() {
   };
 
   const displayMobile = () => {
+    const handleMenuOpen = () =>  {
+      setState((prevState) => ({ ...prevState, menuOpen: true }));
+    }
     return (
       <Toolbar>
         <IconButton
@@ -87,6 +94,7 @@ function Header() {
             color: "inherit",
             "aria-label": "menu",
             "aria-haspopup": "true",
+            onClick: handleMenuOpen,
           }}
         >
           <MenuIcon />
