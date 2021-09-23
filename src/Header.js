@@ -5,7 +5,10 @@ import {
   Typography, 
   makeStyles, 
   Button, 
-  IconButton
+  IconButton,
+  Drawer,
+  MenuItem,
+  Link
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import React, { useState, useEffect } from 'react';
@@ -33,6 +36,9 @@ const useStyles = makeStyles(() => ({
   toolbar: {
     display: "flex",
     justifyContent: "space-between",
+  },
+  drawerContainer: {
+    padding: "20px 30px",
   }
 }));
 
@@ -50,10 +56,10 @@ const headersData = [
 function Header() {
   const [state, setState] = useState({
     mobileView: false,
-    menuOpen: false,
+    drawerOpen: false,
   });
 
-  const { mobileView, menuOpen } = state;
+  const { mobileView, drawerOpen } = state;
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -83,9 +89,30 @@ function Header() {
   };
 
   const displayMobile = () => {
-    const handleMenuOpen = () =>  {
-      setState((prevState) => ({ ...prevState, menuOpen: true }));
-    }
+    const handleDrawerOpen = () =>  
+      setState((prevState) => ({ ...prevState, drawerOpen: true })); 
+
+    const handleDrawerClose = () =>  
+      setState((prevState) => ({ ...prevState, drawerOpen: false }));
+
+    const getDrawerChoices = () => {
+      return headersData.map(({ label, href }) => {
+        return (
+          <Link
+            {...{
+              component: RouterLink,
+              to: href,
+              color: "inherit",
+              style: { textDecoration: "none" },
+              key: label,
+            }}
+          >
+            <MenuItem>{label}</MenuItem>
+          </Link>
+        );
+      });
+    };
+    
     return (
       <Toolbar>
         <IconButton
@@ -94,11 +121,20 @@ function Header() {
             color: "inherit",
             "aria-label": "menu",
             "aria-haspopup": "true",
-            onClick: handleMenuOpen,
+            onClick: handleDrawerOpen,
           }}
         >
           <MenuIcon />
         </IconButton>
+      <Drawer
+        {...{
+          anchor: "left",
+          open: drawerOpen,
+          onClose: handleDrawerClose,
+        }}
+      >
+        <div className={drawerContainer}>{getDrawerChoices()}</div>
+      </Drawer>
       <div>{placegoldenLogo}</div>
       </Toolbar>
     );
