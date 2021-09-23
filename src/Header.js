@@ -6,7 +6,7 @@ import {
   makeStyles, 
   Button, 
 } from '@material-ui/core';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
@@ -43,6 +43,28 @@ const headersData = [
 ];
 
 function Header() {
+  const [state, setState] = useState({
+    mobileView: false,
+  });
+
+  const { mobileView } = state;
+
+  useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setState((prevState) => ({ ...prevState, mobileView: true }))
+        : setState((prevState) => ({ ...prevState, mobileView: false }));
+    };
+
+    setResponsiveness();
+    window.addEventListener("resize", () => setResponsiveness());
+
+    return () => {
+      window.removeEventListener("resize", () => setResponsiveness());
+    }
+  }, []);
+
+
   const { header, logo, menuButton } = useStyles();
 
   const displayDesktop = () => {
@@ -80,7 +102,7 @@ function Header() {
 
   return (
     <div>
-      <AppBar className={header}>{displayDesktop()}</AppBar>
+      <AppBar className={header}>{mobileView ? displayMobile() : displayDesktop()}</AppBar>
     </div>
   );
 }
