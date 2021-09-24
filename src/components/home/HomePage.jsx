@@ -3,7 +3,7 @@ import './HomePage.css';
 const HomePage = () => {
   return (
     <>
-      <div>
+      <div className="homeDiv">
         <p>
           Placeholder images of the Golden Girls. Just a few below. 
           <br /> 
