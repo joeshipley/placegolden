@@ -3,11 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: .25rem;
-}
-
-p {
-  padding-left: 1rem;
+  padding-top: .2rem;
 }
 
 img {
