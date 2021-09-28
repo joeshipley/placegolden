@@ -5,8 +5,7 @@ import AboutPage from './components/about/AboutPage';
 import ImagesPage from './components/images/ImagesPage';
 import {
   Route,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom';
 
 const App = () => {
@@ -34,7 +33,9 @@ const App = () => {
           )}
         />
 
-        <Redirect to="/" />
+        <Route path="/:width/:height" 
+          
+        />
 
       </Switch>
     </>
