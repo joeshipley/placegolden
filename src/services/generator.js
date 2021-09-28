@@ -15,6 +15,8 @@ app.get('/:width/:height', (req, res) => {
 
     const images = JSON.parse(data);
 
+    console.log(data);
+
     let ratio = width/height;
 
     let getImageAttempts = 0;
