@@ -34,7 +34,7 @@ const App = () => {
           )}
         />
 
-        <Route path="/:width/:height" exact={true} component={ImageDisplay}
+        <Route path="/:width/:height" exact={true}
         />
 
       </Switch>
