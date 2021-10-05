@@ -1,0 +1,5 @@
+	[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/generator/:splat"
+  status = 200
+  force = true
