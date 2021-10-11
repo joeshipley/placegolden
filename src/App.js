@@ -35,6 +35,9 @@ const App = () => {
         />
 
         <Route path="/:width/:height" exact={true}
+          render={routerProps => (
+            <ImageDisplay {...routerProps} />
+          )}
         />
 
       </Switch>
