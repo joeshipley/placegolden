@@ -1,11 +1,15 @@
 import express from 'express';
+import {base64Sync} from "base64-img";
 import * as path from 'path';
+
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import * as fs from 'fs';
 import images from './images/images.js';
 
 const app = express();
+const imageDir = '/public/images'
+const BASE_URL = 'localhost:5000'
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -14,46 +18,33 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.get('/express_backend', (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' }); 
+  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
 const currentDir = process.env.LAMBDA_TASK_ROOT || __dirname;
 
 app.get('/:width/:height', (req, res, next) => {
-    let { width, height } = req.params;
-    // fs.readFile(path.join(currentDir, 'images/images.json'), 'utf-8', (err, data) => {
-    //      if(err) return res.redirect('/about');
-    
-    // const images = JSON.parse(data);
-    let ratio = width/height;
+    const fileOrJSImageSource = "json";
+    let imageData1 = "";
+    if(fileOrJSImageSource == "file") {
+        const files = fs.readdirSync(__dirname + imageDir);
+        const chosenFile = files[Math.floor(Math.random() * files.length)];
+        imageData1 = base64Sync(__dirname + imageDir + '/' + chosenFile)
 
-    const yourImage = images[Math.floor(Math.random() * images.length)];
+    }
+    else {
+        const yourImage = images[Math.floor(Math.random() * images.length)];
+        imageData1 = yourImage.data
+    }
+    let base64Data = imageData1.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
 
-      // let getImageAttempts = 0;
-      // const getImage = () => {
-      //   const yourImage = images[Math.floor(Math.random() * images.length)];
-      //   console.log('yourImage', yourImage);
-      //   const yourImageRatio = yourImage.width/yourImage.height;
-  
-      //   if((ratio < 0.8 && yourImageRatio > 1) || (ratio > 1.2 && yourImageRatio < 1)) {
-      //     getImageAttempts++;
-      //     if(getImageAttempts < 10) {
-      //       getImage();
-      //     } else {
-      //       return yourImage;
-      //     }
-      //   } else {
-      //     return yourImage;
-      //   }
-      // }
-      // const image = getImage();
+    const img = Buffer.from(base64Data, 'base64');
 
-      console.log('image from server.js', yourImage);
-
-      res.json(yourImage);
-  
-      // res.writeHead(200, {'Content-Type': 'image/svg+xml', 'Cache-Control': 'public, max-age=86400'});
-      // return res.end('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + width + '" height="' + height + '" viewBox="0 0 ' + image.width + ' ' + image.height + '" preserveAspectRatio="xMidYMid slice"> width="' + image.width + '" height="' + image.height + ' /></svg>');
+    res.writeHead(200, {
+    'Content-Type': 'image/jpeg',
+    'Content-Length': img.length
+    });
+    res.end(img);
 });
 
 
