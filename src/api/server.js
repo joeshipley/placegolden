@@ -9,6 +9,8 @@ import serverless from 'serverless-http';
 
 const app = express();
 
+const router = express.Router();
+
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -54,5 +56,7 @@ app.get('/:width/:height', (req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+app.use('/.netlify/functions/generator', router);
 
 module.exports.handler = serverless(app);
