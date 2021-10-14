@@ -1,5 +1,6 @@
 import express from 'express';
 import {base64Sync} from 'base64-img';
+import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import * as fs from 'fs';
@@ -7,6 +8,7 @@ import images from './images/images.js';
 
 const app = express();
 const imageDir = '/public/images';
+const BASE_URL = 'localhost:5000'
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -38,7 +40,7 @@ app.get('/:width/:height', (req, res, next) => {
   'Content-Type': 'image/jpeg',
   'Content-Length': img.length
   });
-  
+
   res.end(img);
 });
 
