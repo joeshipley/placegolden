@@ -18,7 +18,7 @@ app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' }); 
 });
 
-app.get('/:width/:height', (req, res, next) => {
+router.get('/api/:width/:height', (req, res, next) => {
   const { width, height } = req.params;
   let imageData1 = '';
 
@@ -53,7 +53,7 @@ app.get('/:width/:height', (req, res, next) => {
   res.end(img);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
