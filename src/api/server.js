@@ -4,7 +4,8 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import * as fs from 'fs';
-import images from './images/images.js';
+import images from '../../images/images.js';
+import serverless from 'serverless-http';
 
 const app = express();
 
@@ -53,3 +54,5 @@ app.get('/:width/:height', (req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+module.exports.handler = serverless(app);

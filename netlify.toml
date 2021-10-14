@@ -1,5 +1,7 @@
-	[[redirects]]
+[build]
+  functions = "functions"
+  publish = "build"
+[[redirects]]
   from = "/*"
-  to = "/.netlify/functions/generator/:splat"
+  to = "/index.html"
   status = 200
-  force = true
