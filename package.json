@@ -28,9 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:lambda": "netlify-lambda serve src/api",
-    "build:lambda": "netlify-lambda build src/api",
-    "start:app": "cd client && npm run start",
-    "build:app": "cd client && npm run build"
+    "build:lambda": "netlify-lambda build src/api"
   },
   "eslintConfig": {
     "extends": [
